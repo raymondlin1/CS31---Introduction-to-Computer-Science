@@ -1,4 +1,4 @@
-# UCLA-CS-31
+# Grades
 
 Project | Score
 ---- | ----
