@@ -1,0 +1,30 @@
+DISCUSSION NOTES 12/01
+-Struct: a user defined data type
+-Cannot initialize variables in struct declaration
+
+Struct Pointers
+-Pointers to structs must ahve same type as object that they're pointing to
+-Dereference and access arrow -> operator is just like the . operator but it is for pointers
+
+Structs in Memory
+-A struct's members are always sequential but not necessarily contiguous
+-Struct storage in memory depends on what members it has, the data type (how large it is), the order in which it is declared
+
+Objects
+-state described via attributes
+-
+
+Classes
+-describes similar types of things
+-Has constructors
+	Types of Constructors
+	-default constructor: if user does not define a constructor, the compiler creates a default constructor with no parameters
+	-user defined constructor
+	-copy constructor: has object reference as parameter, creates a copy of anotehr object in terms of its attribute
+
+	Characteristics
+	-same as class name
+	-should be in public
+	-no return type
+	-can be inherited
+	-

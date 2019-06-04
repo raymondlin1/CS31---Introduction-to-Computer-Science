@@ -1,0 +1,97 @@
+MISC NOTES
+11/29/2017
+1. Static variables are any variables that are declared in functions, in the main etc... They live on the "stack"
+2. Dynamic variables are declare using the keyword 'new'. They live on the "heap"
+3. Global variables
+
+"default constructor" ==> "zero-argument constructor"
+
+class Target
+{
+	public:
+		Target();
+	...
+};
+
+class Pet
+{
+	public:
+		Pet(int initialHealth, string nm);
+	...
+};
+
+struct Employee
+{
+	string name;
+	double salary;
+	int age;
+};
+
+If you declare no constructors at all, the compiler writes a default constructor for you that leaves members of built in types uninitialized, and default-constructs members of a class type.
+
+Pet p1(10, "Fido");
+Pet p2; 		//Error! Won't compile! You declared a constructor, so the compiler did not make one that takes no arguments
+
+Target t;
+
+Employee e;
+
+Pet p1(10, "Fido");
+string s("Hello");	//default constructor for string class
+Target u(); 	//does not declare an object; it declares a function u, that takes no arguments and returns a Target
+
+u.move('R');	//Error! g++:request for member 'move' in 'u', which is of non-class type 'Target()'
+						 clag++: Warning: empty parentheses interpreted as a function declaration. note: remove parentheses to declare a variable
+						 VC++: error: left of '.move' must have class/struct/union
+
+
+
+
+
+int main
+{
+	Company myCompany;
+	myCompany.hire("Ricky", 80000, 34);
+	myCompany.hire("Lucy", 100000, 32);
+
+	Company yourCompany;
+	yourCompany.hire("Ethel", 70000, 33);
+
+	myCompany.setBonus(.02);
+	myCompany.giveBonus();
+}
+
+Common Mistake - redundant work:
+Function:
+bool shoot() {
+	//shoot at the opponent, return true if hit, false if missed
+}
+
+Incorrect:
+shoot()					//this shoots once
+if(shoot() == true)		//this shoots twice, it is incorrect!
+	increase score
+
+Fixed: 
+if(shoot()) {			//correct
+	increase score
+}
+
+
+
+C++98
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+	double side;
+	cin >> side;
+	cout << side * sqrt(2) << endl;		//ERROR! Ambiguous
+}
+
+Functions for SQRT
+double sqrt(int x);						//fixed ambiguity
+float sqrt(float x);
+double sqrt(double x);
+long double sqrt(long double x);

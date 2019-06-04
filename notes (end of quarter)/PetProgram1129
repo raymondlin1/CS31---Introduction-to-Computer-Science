@@ -1,0 +1,60 @@
+PET PROGRAM 11/29
+class Pet
+{
+	public:
+		Pet(int initialHealth, string nm);
+		~Pet();			//destructor: takes no arguments
+		string name() const;
+		void addToy();
+	private:
+		int m_health;
+		string m_name;
+		Toy* m_favorite;
+};
+
+Pet::Pet(int initialHealth, string nm) 
+{
+	health = initialHealth;
+	name = nm;
+	m_favorite = nullptr;
+}
+
+string Pet::name() const
+{
+	return m_name;
+}
+
+void Pet::addToy()
+{
+	delete m_favorite;
+	m_favorite = new Toy;		//dynamically allocates a new Toy
+}
+
+void f()
+{
+	Pet x(10, "Fido");
+	x.addToy();			//dynamically allocated an object
+	...
+	x.addToy();
+	...
+}
+//when function ends, x is deleted, but x's toy still exists because there is a pointer to the toy. must delete toy before function ends.
+
+Pet::~Pet()
+{
+	delete m_favorite;		//If m_favorite points to the nullptr, it is still legal to delete it
+}
+
+int main()
+{
+	
+	//Pet* pp = new Pet(20, "Snowflake");
+	//Pet y; 			//won't compile bc no constructor 
+	//Pet pp[100]; 		//won't compile bc no constructor
+
+	while(...) 
+	{
+		f();
+	}
+}
+

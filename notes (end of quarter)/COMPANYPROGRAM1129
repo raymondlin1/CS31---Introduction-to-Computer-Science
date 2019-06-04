@@ -1,0 +1,70 @@
+COMPANY PROGRAM 11/29
+
+class Company;		//incomplete type declaration
+
+class Employee
+{
+	public:
+		Employee(string nm, double sal, int ag);
+		void receiveBonus() const;
+	private:
+		string m_name;	
+		double m_salary;
+		int m_age;
+		Company* m_company;
+};
+
+Employee::Employee(string nm, double sal, int ag, Company* cp)
+{
+	m_name = nm;
+	m_salary = sal;
+	m_age = ag;
+	m_company = cp;
+}
+
+void Employee::receiveBonus() const 
+{
+	cout << "Pay to the order of " << m_name << " the amount of $" << (m_salary * ) << endl;
+}
+
+class Company
+{
+	public:
+		Company();
+		void hire(string nm, double sal, int ag);
+		void setBonus(double rate);
+		void giveBonus() const;
+	private:
+		Employee* m_employees[100];
+		int m_nEmployees;
+		double m_bonusRate;
+};
+
+Company::Company()
+{
+	m_nEmployees = 0;
+	m_bonusRate = 0;
+}
+
+Company::~Company()
+{
+	for(int i = 0; i < m_nEmployee; i++)
+		delete m_employees[i];
+}
+
+void Company::setBonus(double rate)
+{
+	m_bonusRate = rate;
+}
+
+void Company::hire(string nm, double sal, int ag)
+{
+	m_employees[m_nEmployees] = new Employee(nm, sal, ag, this);
+	m_nEmployees++;
+}
+
+void Company::giveBonuses() const
+{
+	for(int k = 0; k < m_nEmployees; k++)
+		m_employees[k]->receiveBonus(m_bonusRate);
+}

@@ -1,0 +1,37 @@
+COMPLEX NUMBERS PROGRAM 
+
+class Complex {
+	public:
+		double real() const;
+		double imag() const;
+	private:
+		double m_real;
+		double m_imag;
+};
+
+Complex::Complex(double real, double imag) {
+	m_real = real;
+	m_imag = imag;
+}
+
+Complex::Complex
+
+double Complex::real() const {
+	return m_real;
+}
+
+double Complex::imag() const {
+	return m_imag;
+}
+
+
+
+
+
+int main() {
+	Complex c(4, -3); 		//represents 4-3i
+	Complex ca[100];
+	Complex c2;
+}
+
+	

@@ -1,0 +1,23 @@
+FAN PROGRAM 12/04
+
+class Fan {
+	public:
+		void turnOn();
+};
+
+class Rock {
+	public:
+		double weight() const;	
+};
+
+class Robot {
+	Fan m_cooler;		//robot always has a cooler - so it is better to declare it as an object
+	Rock* m_rock;		//robot doesn't always have a rock - so it is better to declare it as a pointer
+};
+
+void Robot::blah(...) {
+	if(m_rock != nullptr && m_rock->weight() > 50) { // always make sure the pointer is not a nullptr, conditions must be in the right order
+		m_fan.turnOn();
+	}
+}
+
